@@ -1,4 +1,6 @@
 package com.aperezsi.brewbeerapp.brewbeerapp.viewmodel.base
 
-class BaseViewModel {
+import android.arch.lifecycle.ViewModel
+
+abstract class BaseViewModel : ViewModel(){
 }

@@ -1,6 +1,6 @@
 package com.aperezsi.brewbeerapp.brewbeerapp
 
-import android.app.Application
+import android.support.multidex.MultiDexApplication
 
-class BrewBeerApp : Application() {
+class BrewBeerApp : MultiDexApplication() {
 }

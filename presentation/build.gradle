@@ -12,6 +12,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -60,11 +61,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    //Projects
+    implementation project(":domain")
+    implementation project(":data")
+
+
     //Kotlin
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //Android libraries
     implementation "com.android.support:appcompat-v7:$rootProject.support"
+    implementation "com.android.support:multidex:$rootProject.multidex"
 
     //Test libraries
     testImplementation "junit:junit:$rootProject.junit"

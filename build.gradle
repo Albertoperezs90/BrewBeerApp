@@ -29,6 +29,7 @@ task clean(type: Delete) {
 ext {
     //Android libraries
     support = '28.0.0'
+    multidex = '1.0.0'
 
 
     //Testing libraries
