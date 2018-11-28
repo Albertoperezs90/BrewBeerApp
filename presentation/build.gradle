@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.aperezsi.brewbeerapp"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            debuggable true
+        }
+        release {
+            debuggable false
+            shrinkResources true
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    flavorDimensions "compilation"
+
+    productFlavors {
+
+        dev {
+            applicationId "com.aperezsi.brewbeerapp.dev"
+            dimension "compilation"
+            versionCode 1
+            versionName "1.0"
+        }
+
+        mock {
+            applicationId "com.aperezsi.brewbeerapp.mock"
+            dimension "compilation"
+            versionCode 1
+            versionName "1.0"
+        }
+
+        pro {
+            dimension "compilation"
+            versionCode 1
+            versionName "1.0"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Kotlin
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //Android libraries
+    implementation "com.android.support:appcompat-v7:$rootProject.support"
+
+    //Test libraries
+    testImplementation "junit:junit:$rootProject.junit"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.testRunner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espresso"
+}
